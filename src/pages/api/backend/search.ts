@@ -16,6 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   let title = ""
   let link = ""
   let description = ""
+  let chunk = ""
   const search = process.env.API_URL + "/api/search/search/"
   await axios
     .post(
@@ -35,6 +36,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       title = data.title
       link = data.link
       description = data.description
+      chunk = data.chunk
     }).catch((err) => {
       console.log(err)
     })
@@ -44,7 +46,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     JSON.stringify({
       title,
       link,
-      description
+      description,
+      chunk
     }))
 }
 
