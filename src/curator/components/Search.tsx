@@ -2,13 +2,14 @@ import React, { useState } from "react"
 import { getAntiCSRFToken } from "@blitzjs/auth"
 
 
-const Search= ({ creator }) => {
+const Search= ({ }) => {
   const [search, setSearch] = useState("")
   const [result, setResult] = useState({
     title: "",
     description: "",
     link: "",
-    chunk: ""
+    chunk: "",
+    author: ""
   })
   const antiCSRFToken = getAntiCSRFToken()
 
@@ -21,7 +22,7 @@ const Search= ({ creator }) => {
   const handleSearchSubmit = (e) => {
     e.preventDefault()
     setLoading(true)
-    fetch("/api/backend/search", {
+    fetch("/api/backend/curated", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -29,7 +30,6 @@ const Search= ({ creator }) => {
       },
       body: JSON.stringify({
         searchTerm: search,
-        creator,
       })
     })
       .then((res) => res.json())
@@ -96,7 +96,9 @@ const Search= ({ creator }) => {
                               </span>
 
                 </a>
+
                 <div className="prose prose-lg prose-indigo mx-auto mt-6 text-gray-500">
+                  <p>{result.author}</p>
                   <blockquote>
                     <p>
                       {result.chunk}
