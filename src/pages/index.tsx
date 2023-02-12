@@ -6,7 +6,7 @@ import { useCurrentUser } from "src/users/hooks/useCurrentUser"
 import logout from "src/auth/mutations/logout"
 import logo from "public/logo.png"
 import { useMutation } from "@blitzjs/rpc"
-import { Routes, BlitzPage } from "@blitzjs/next"
+import { BlitzPage } from "@blitzjs/next"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -39,12 +39,12 @@ const UserInfo = () => {
   } else {
     return (
       <>
-        <Link href={Routes.SignupPage()}>
+        <Link href="/auth/signup">
           <a className="button small">
             <strong>Sign Up</strong>
           </a>
         </Link>
-        <Link href={Routes.LoginPage()}>
+        <Link href="/auth/login">
           <a className="button small">
             <strong>Login</strong>
           </a>
@@ -63,7 +63,8 @@ const Home: BlitzPage = () => {
             <Image src={`${logo.src}`} alt="blitzjs" width="256px" height="118px" layout="fixed" />
           </div>
           <p>
-            <strong>Congrats!</strong> <h1 className="text-3xl"> Your app is ready, including user sign-up and log-in.</h1>
+            <strong>Congrats!</strong> <h1 className="text-3xl"> Your app is ready, including user sign-up and
+            log-in.</h1>
           </p>
           <div className="buttons" style={{ marginTop: "1rem", marginBottom: "1rem" }}>
             <Suspense fallback="Loading...">
@@ -143,7 +144,7 @@ const Home: BlitzPage = () => {
             padding: 0;
             margin: 0;
             font-family: "Libre Franklin", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
           }
 
           * {
@@ -151,6 +152,7 @@ const Home: BlitzPage = () => {
             -moz-osx-font-smoothing: grayscale;
             box-sizing: border-box;
           }
+
           .container {
             min-height: 100vh;
             display: flex;
@@ -210,6 +212,7 @@ const Home: BlitzPage = () => {
             grid-auto-flow: column;
             grid-gap: 0.5rem;
           }
+
           .button {
             font-size: 1rem;
             background-color: #6700eb;
@@ -244,10 +247,11 @@ const Home: BlitzPage = () => {
             padding: 0.75rem;
             text-align: center;
           }
+
           code {
             font-size: 0.9rem;
             font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-              Bitstream Vera Sans Mono, Courier New, monospace;
+            Bitstream Vera Sans Mono, Courier New, monospace;
           }
 
           .grid {
