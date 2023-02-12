@@ -6,11 +6,12 @@ class MyDocument extends Document {
   //   const initialProps = await Document.getInitialProps(ctx)
   //   return {...initialProps}
   // }
+
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" className="h-full bg-gray-100">
         <Head />
-        <body>
+        <body className="h-full">
           <Main />
           <NextScript />
         </body>

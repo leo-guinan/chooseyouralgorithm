@@ -20,7 +20,8 @@ model User {
   email          String   @unique
   hashedPassword String?
   role           String   @default("USER")
-
+  curatorId     Int?
+  clientAccountId Int?
   tokens   Token[]
   sessions Session[]
 }
@@ -66,10 +67,11 @@ model Token {
 
 
 model Creator {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  slug      String   @unique
-  name      String
-  email     String   @unique
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  slug       String   @unique
+  name       String
+  email      String   @unique
+
 }
