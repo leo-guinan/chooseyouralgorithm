@@ -75,3 +75,12 @@ model Creator {
   email      String   @unique
 
 }
+
+model PodcastRequest {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  podcastName String
+  fulfilled Boolean @default(false)
+  url String?
+}

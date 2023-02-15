@@ -13,4 +13,5 @@ const BrowsePodcastsPage = () => {
 }
 
 BrowsePodcastsPage.getLayout = (page) => <Layout title={"Browse Podcasts"}>{page}</Layout>
+BrowsePodcastsPage.authenticate = { redirectTo: "/" }
 export default BrowsePodcastsPage

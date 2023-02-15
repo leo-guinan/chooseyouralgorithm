@@ -10,8 +10,9 @@ const navigation = [
   { name: "Search", href: "#", icon: UsersIcon, current: false },
   { name: "Curated Search", href: "/search/curated", icon: FolderIcon, current: false },
   { name: "Request A Podcast", href: "#", icon: CalendarIcon, current: false },
-  { name: "Upgrade Account", href: "#", icon: InboxIcon, current: false },
-  { name: "Browse Podcasts", href: "/podcasts/browse", icon: InboxIcon, current: false }
+  { name: "Upgrade Account", href: "/account/upgrade", icon: InboxIcon, current: false },
+  { name: "Browse Podcasts", href: "/podcasts/browse", icon: InboxIcon, current: false },
+  { name: "Browse Curated Podcasts", href: "/podcasts/curated", icon: InboxIcon, current: false}
 ]
 const userNavigation = [
   { name: "Your Profile", href: "#" },
@@ -204,9 +205,6 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
           </div>
           <main className="flex-1">
             <div className="py-6">
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
-              </div>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
                 {/* Replace with your content */}
                 <Suspense fallback={<div>Loading...</div>}>

@@ -2,7 +2,7 @@ import Search from "../../search/components/Search"
 import React, { Suspense } from "react"
 import Layout from "../../core/layouts/Layout"
 
-const CuratedSearchPage = () => {
+const GlobalSearchPage = () => {
   return (
     <>
       <h1>Curated Search</h1>
@@ -13,6 +13,6 @@ const CuratedSearchPage = () => {
   )
 }
 
-CuratedSearchPage.authenticate = { redirectTo: "/" }
-CuratedSearchPage.getLayout = (page) => <Layout title={"Global Search"}>{page}</Layout>
-export default CuratedSearchPage
+GlobalSearchPage.authenticate = { redirectTo: "/" }
+GlobalSearchPage.getLayout = (page) => <Layout title={"Global Search"}>{page}</Layout>
+export default GlobalSearchPage
