@@ -5,7 +5,7 @@ import * as z from "zod"
 const CreateRequest = z
   .object({
     podcastName: z.string(),
-    url: z.string(),
+    url: z.string()
   })
 
 export default async function createProject(
@@ -17,8 +17,15 @@ export default async function createProject(
 
   // Require user to be logged in
   ctx.session.$authorize()
+  const userId = ctx.session.userId
 
-  const podcastRequest = await db.podcastRequest.create({ data })
+
+  const podcastRequest = await db.podcastRequest.create({
+    data: {
+      ...data,
+      requestorId: userId
+    }
+  })
 
   // Can do any processing, fetching from other APIs, etc
 

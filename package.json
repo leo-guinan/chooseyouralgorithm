@@ -24,9 +24,9 @@
     ]
   },
   "dependencies": {
-    "@blitzjs/auth": "2.0.0-beta.22",
-    "@blitzjs/next": "2.0.0-beta.22",
-    "@blitzjs/rpc": "2.0.0-beta.22",
+    "@blitzjs/auth": "0.0.0-app-dir-20230217182624",
+    "@blitzjs/next": "0.0.0-app-dir-20230217182624",
+    "@blitzjs/rpc": "0.0.0-app-dir-20230217182624",
     "@headlessui/react": "1.7.10",
     "@heroicons/react": "2.0.15",
     "@prisma/client": "4.6.0",
@@ -34,13 +34,14 @@
     "@tailwindcss/forms": "0.5.3",
     "@tailwindcss/typography": "0.5.9",
     "axios": "1.2.3",
-    "blitz": "2.0.0-beta.22",
+    "blitz": "0.0.0-app-dir-20230217182624",
     "final-form": "4.20.8",
-    "next": "12.2.5",
+    "next": "13.1.6",
     "prisma": "4.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-final-form": "6.5.9",
+    "secure-password": "4.0.0",
     "zod": "3.19.1"
   },
   "devDependencies": {

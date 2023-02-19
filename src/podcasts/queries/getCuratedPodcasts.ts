@@ -1,17 +1,19 @@
-import { api } from "src/blitz-server"
-import db from "db"
+import db from "../../../db"
 import { Ctx } from "blitz"
 
-export default api(async (req, res, ctx:Ctx) => {
+export default async function getCuratedPodcasts(
+  _input: {},
+  ctx: Ctx
+) {
   ctx.session.$authorize()
   const publicData = ctx.session.$publicData
 
-  if (!publicData.userId) return res.status(404).json({})
+  if (!publicData.userId) return []
   const user = await db.user.findFirst({
     where: { id: publicData.userId },
 
   });
-  if (!user) return res.status(404).json({});
+  if (!user) return []
 
   const podcastLookupUrl = process.env.API_URL + "/api/search/curated_podcasts/"
   const results = await fetch(
@@ -40,7 +42,6 @@ export default api(async (req, res, ctx:Ctx) => {
       curated: podcast.curated,
     }
   });
+  return podcasts
 
-
-  res.status(200).json(podcasts)
-})
+}

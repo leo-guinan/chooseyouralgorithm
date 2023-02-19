@@ -2,39 +2,12 @@ import { MinusIcon, PlusIcon as PlusIconOutline } from "@heroicons/react/24/outl
 import { getAntiCSRFToken } from "@blitzjs/auth"
 import { PodcastEntity } from "../../../types"
 
+'use client';
 
-const Podcast = ({ podcast }: { podcast:  PodcastEntity}) => {
+const Podcast = ({ podcast, handleCurate, handleRemoveCurate }: { podcast:  PodcastEntity, handleCurate, handleRemoveCurate}) => {
   const antiCSRFToken = getAntiCSRFToken()
 
-  const handleCurate = (podcastId: number) => {
-    fetch("/api/backend/curate", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "anti-csrf": antiCSRFToken,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ podcastId })
-    })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
 
-  const handleRemoveCurate = (podcastId: number) => {
-    fetch("/api/backend/uncurate", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "anti-csrf": antiCSRFToken,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ podcastId })
-    })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
 
   return (
     <>

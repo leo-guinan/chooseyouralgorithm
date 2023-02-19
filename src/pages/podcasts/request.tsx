@@ -1,11 +1,15 @@
 import Layout from "../../core/layouts/Layout"
 import Request from "../../podcasts/components/Request"
-import React from "react"
+import React, { Suspense } from "react"
+import MyRequests from "../../podcasts/components/MyRequests"
 
 const RequestPodcastPage = () => {
   return (
     <>
-      <Request />
+      <Suspense fallback="Loading...">
+        <Request />
+        <MyRequests />
+      </Suspense>
     </>
   )
 }

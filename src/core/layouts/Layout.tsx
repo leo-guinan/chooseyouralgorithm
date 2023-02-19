@@ -7,9 +7,9 @@ import { Bars3Icon } from "@heroicons/react/20/solid"
 
 const navigation = [
   { name: "Home", href: "#", icon: HomeIcon, current: true },
-  { name: "Search", href: "#", icon: UsersIcon, current: false },
+  { name: "Search", href: "/search/global", icon: UsersIcon, current: false },
   { name: "Curated Search", href: "/search/curated", icon: FolderIcon, current: false },
-  { name: "Request A Podcast", href: "#", icon: CalendarIcon, current: false },
+  { name: "Request A Podcast", href: "/podcasts/request", icon: CalendarIcon, current: false },
   { name: "Upgrade Account", href: "/account/upgrade", icon: InboxIcon, current: false },
   { name: "Browse Podcasts", href: "/podcasts/browse", icon: InboxIcon, current: false },
   { name: "Browse Curated Podcasts", href: "/podcasts/curated", icon: InboxIcon, current: false}
