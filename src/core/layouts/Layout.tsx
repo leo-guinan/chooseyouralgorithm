@@ -2,9 +2,17 @@ import Head from "next/head"
 import React, { Fragment, Suspense, useState } from "react"
 import { BlitzLayout } from "@blitzjs/next"
 import { Dialog, Transition } from "@headlessui/react"
-import { CalendarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon, XMarkIcon } from "@heroicons/react/24/outline"
+import {
+  CalendarIcon,
+  FolderIcon,
+  HomeIcon,
+  InboxIcon,
+  UsersIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline"
 import { Bars3Icon } from "@heroicons/react/20/solid"
 import Image from "next/image"
+
 const navigation = [
   { name: "Home", href: "#", icon: HomeIcon, current: true },
   { name: "Search", href: "/search/global", icon: UsersIcon, current: false },
@@ -12,12 +20,12 @@ const navigation = [
   { name: "Request A Podcast", href: "/podcasts/request", icon: CalendarIcon, current: false },
   { name: "Upgrade Account", href: "/account/upgrade", icon: InboxIcon, current: false },
   { name: "Browse Podcasts", href: "/podcasts/browse", icon: InboxIcon, current: false },
-  { name: "Browse Curated Podcasts", href: "/podcasts/curated", icon: InboxIcon, current: false}
+  { name: "Browse Curated Podcasts", href: "/podcasts/curated", icon: InboxIcon, current: false },
 ]
 const userNavigation = [
   { name: "Your Profile", href: "#" },
   { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" }
+  { name: "Sign out", href: "#" },
 ]
 
 function classNames(...classes) {
@@ -25,9 +33,9 @@ function classNames(...classes) {
 }
 
 const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
-                                                                               title,
-                                                                               children
-                                                                             }) => {
+  title,
+  children,
+}) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   return (
     <>
@@ -35,7 +43,6 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
         <title>{title || "chooseyouralgorithm"}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
 
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -107,7 +114,9 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
                         >
                           <item.icon
                             className={classNames(
-                              item.current ? "text-gray-300" : "text-gray-400 group-hover:text-gray-300",
+                              item.current
+                                ? "text-gray-300"
+                                : "text-gray-400 group-hover:text-gray-300",
                               "mr-4 flex-shrink-0 h-6 w-6"
                             )}
                             aria-hidden="true"
@@ -117,9 +126,23 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
                       ))}
                     </nav>
                   </div>
+                  <div className="flex flex-shrink-0 bg-gray-700 p-4">
+                    <a href="#" className="group block flex-shrink-0">
+                      <div className="flex items-center">
+                        <div className="ml-3">
+                          <p className="text-base font-medium text-white">Credits Remaining: 10</p>
+                          <p className="text-sm font-medium text-gray-400 group-hover:text-gray-300">
+                            Credits Reset: 03/01/2023
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
-              <div className="w-14 flex-shrink-0">{/* Force sidebar to shrink to fit close icon */}</div>
+              <div className="w-14 flex-shrink-0">
+                {/* Force sidebar to shrink to fit close icon */}
+              </div>
             </div>
           </Dialog>
         </Transition.Root>
@@ -144,7 +167,9 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                      item.current
+                        ? "bg-gray-900 text-white"
+                        : "text-gray-300 hover:bg-gray-700 hover:text-white",
                       "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                     )}
                   >
@@ -159,6 +184,18 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
                   </a>
                 ))}
               </nav>
+            </div>
+            <div className="flex flex-shrink-0 bg-gray-700 p-4">
+              <a href="#" className="group block w-full flex-shrink-0">
+                <div className="flex items-center">
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-white">Credits Remaining: 10</p>
+                    <p className="text-xs font-medium text-gray-300 group-hover:text-gray-200">
+                      Credits Reset: 03/01/2023
+                    </p>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -177,9 +214,7 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
                 {/* Replace with your content */}
-                <Suspense fallback={<div>Loading...</div>}>
-                  {children}
-                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
                 {/* /End replace */}
               </div>
             </div>
