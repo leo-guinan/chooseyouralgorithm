@@ -88,6 +88,7 @@ export const mockRouter: NextRouter = {
   back: jest.fn(),
   prefetch: jest.fn(),
   beforePopState: jest.fn(),
+  forward: jest.fn(),
   events: {
     on: jest.fn(),
     off: jest.fn(),
