@@ -4,7 +4,7 @@ import { BlitzLayout } from "@blitzjs/next"
 import { Dialog, Transition } from "@headlessui/react"
 import { CalendarIcon, FolderIcon, HomeIcon, InboxIcon, UsersIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { Bars3Icon } from "@heroicons/react/20/solid"
-
+import Image from "next/image"
 const navigation = [
   { name: "Home", href: "#", icon: HomeIcon, current: true },
   { name: "Search", href: "/search/global", icon: UsersIcon, current: false },
@@ -85,10 +85,12 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
                   </Transition.Child>
                   <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4">
                     <div className="flex flex-shrink-0 items-center px-4">
-                      <img
-                        className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company"
+                      <Image
+                        width={1000}
+                        height={1000}
+                        className="h-32 w-auto"
+                        src="/Logo.png"
+                        alt="Choose Your Algorithm"
                       />
                     </div>
                     <nav className="mt-5 space-y-1 px-2">
@@ -115,23 +117,6 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
                       ))}
                     </nav>
                   </div>
-                  <div className="flex flex-shrink-0 bg-gray-700 p-4">
-                    <a href="#" className="group block flex-shrink-0">
-                      <div className="flex items-center">
-                        <div>
-                          <img
-                            className="inline-block h-10 w-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                          />
-                        </div>
-                        <div className="ml-3">
-                          <p className="text-base font-medium text-white">Tom Cook</p>
-                          <p className="text-sm font-medium text-gray-400 group-hover:text-gray-300">View profile</p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
                 </Dialog.Panel>
               </Transition.Child>
               <div className="w-14 flex-shrink-0">{/* Force sidebar to shrink to fit close icon */}</div>
@@ -145,10 +130,12 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
           <div className="flex min-h-0 flex-1 flex-col bg-gray-800">
             <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
               <div className="flex flex-shrink-0 items-center px-4">
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt="Your Company"
+                <Image
+                  className="h-32 w-auto"
+                  width={1000}
+                  height={1000}
+                  src="/Logo.png"
+                  alt="Choose Your Algorithm"
                 />
               </div>
               <nav className="mt-5 flex-1 space-y-1 px-2">
@@ -172,23 +159,6 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
                   </a>
                 ))}
               </nav>
-            </div>
-            <div className="flex flex-shrink-0 bg-gray-700 p-4">
-              <a href="#" className="group block w-full flex-shrink-0">
-                <div className="flex items-center">
-                  <div>
-                    <img
-                      className="inline-block h-9 w-9 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-white">Tom Cook</p>
-                    <p className="text-xs font-medium text-gray-300 group-hover:text-gray-200">View profile</p>
-                  </div>
-                </div>
-              </a>
             </div>
           </div>
         </div>
