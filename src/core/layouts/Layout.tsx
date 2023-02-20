@@ -12,21 +12,7 @@ import {
 } from "@heroicons/react/24/outline"
 import { Bars3Icon } from "@heroicons/react/20/solid"
 import Image from "next/image"
-
-const navigation = [
-  { name: "Home", href: "#", icon: HomeIcon, current: true },
-  { name: "Search", href: "/search/global", icon: UsersIcon, current: false },
-  { name: "Curated Search", href: "/search/curated", icon: FolderIcon, current: false },
-  { name: "Request A Podcast", href: "/podcasts/request", icon: CalendarIcon, current: false },
-  { name: "Upgrade Account", href: "/account/upgrade", icon: InboxIcon, current: false },
-  { name: "Browse Podcasts", href: "/podcasts/browse", icon: InboxIcon, current: false },
-  { name: "Browse Curated Podcasts", href: "/podcasts/curated", icon: InboxIcon, current: false },
-]
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
-]
+import { useRouter } from "next/router"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
@@ -37,6 +23,46 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
   children,
 }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const router = useRouter()
+  const navigation = [
+    { name: "Home", href: "#", icon: HomeIcon, current: router.pathname === "/" },
+    {
+      name: "Search",
+      href: "/search/global",
+      icon: UsersIcon,
+      current: router.pathname === "/search/global",
+    },
+    {
+      name: "Curated Search",
+      href: "/search/curated",
+      icon: FolderIcon,
+      current: router.pathname === "/search/curated",
+    },
+    {
+      name: "Request A Podcast",
+      href: "/podcasts/request",
+      icon: CalendarIcon,
+      current: router.pathname === "/podcasts/request",
+    },
+    {
+      name: "Upgrade Account",
+      href: "/account/upgrade",
+      icon: InboxIcon,
+      current: router.pathname === "/account/upgrade",
+    },
+    {
+      name: "Browse Podcasts",
+      href: "/podcasts/browse",
+      icon: InboxIcon,
+      current: router.pathname === "/podcasts/browse",
+    },
+    {
+      name: "Browse Curated Podcasts",
+      href: "/podcasts/curated",
+      icon: InboxIcon,
+      current: router.pathname === "/podcasts/curated",
+    },
+  ]
   return (
     <>
       <Head>

@@ -20,10 +20,16 @@ const Request = () => {
 
   return (
     <>
+      <div className="md:flex md:items-center md:justify-between pb-8">
+        <div className="min-w-0 flex-1">
+          <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+            Request Podcast
+          </h2>
+        </div>
+      </div>
       {!loading && (
         <>
-          <div
-            className="relative rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
+          <div className="relative rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
             <label
               htmlFor="name"
               className="absolute -top-2 left-2 -mt-px inline-block px-1 text-xs font-medium text-gray-900"
@@ -41,8 +47,7 @@ const Request = () => {
               placeholder="Podcast Name"
             />
           </div>
-          <div
-            className="relative rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600 my-4">
+          <div className="relative rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600 my-4">
             <label
               htmlFor="url"
               className="absolute -top-2 left-2 -mt-px inline-block px-1 text-xs font-medium text-gray-900"
@@ -60,17 +65,16 @@ const Request = () => {
               placeholder="https://example.com"
             />
           </div>
-          <a
-            className="text-base font-semibold leading-7 text-gray-900"
+          <button
+            type="button"
+            className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             onClick={handleSubmit}
           >
-            <strong>Submit</strong>
-          </a>
+            Submit
+          </button>
         </>
       )}
-      {loading && (
-        <h1>Loading...</h1>
-      )}
+      {loading && <h1>Loading...</h1>}
     </>
   )
 }
