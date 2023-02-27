@@ -13,10 +13,7 @@ import {
 import { Bars3Icon } from "@heroicons/react/20/solid"
 import Image from "next/image"
 import { useRouter } from "next/router"
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ")
-}
+import { classNames } from "../../utils"
 
 const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
   title,

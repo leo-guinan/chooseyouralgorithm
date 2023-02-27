@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { getAntiCSRFToken } from "@blitzjs/auth"
 
-const Search = ({ type }) => {
+const Search = ({ type, podcastId }: { type: string; podcastId?: string }) => {
   const [search, setSearch] = useState("")
   const [result, setResult] = useState({
     title: "",

@@ -21,3 +21,16 @@ export interface PodcastEntity {
   image: string
   curated: boolean
 }
+
+export interface EpisodeEntity {
+  id: number
+  title: string
+  description: string
+  link: string
+  image: string
+  podcastId: number
+  transcript?: string
+  summary?: string
+  notes?: string
+  keyPoints?: string
+}
